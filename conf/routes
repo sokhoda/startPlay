@@ -5,7 +5,11 @@
 # Home page
 #GET     /                           controllers.Application.index
 GET     /                               controllers.MyApp.index
-GET     /welcome/:name                  controllers.MyApp.reqWithParams(name: String)
+GET     /welcome/:name/list                  controllers.MyApp.welcomeList(name: String, from: Int ?=1, to: Int ?=3)
+GET     /welcome/:name          controllers.MyApp.reqWithParamsTrue(name: String, verbose:Boolean)
+#GET     /welcome/:name          controllers.MyApp.reqWithParamsFalse(name: String, verbose:Boolean ?= false)
+GET     /welcome3/:name                 controllers.MyApp.reqWithParams3(name: String)
+GET     /welcome2/:name                 controllers.MyApp.reqWithParams2(name: String)
 POST    /student/info                   controllers.json.JsonExamples.showStudentInfo()
 POST    /student/info/json              controllers.json.JsonExamples.showStudentInfoReplyWithJSon()
 

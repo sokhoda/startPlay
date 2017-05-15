@@ -16,8 +16,21 @@ public class MyApp extends Controller{
         return ok("Welcome to Play, " + name);
     }
 
-    public Result reqWithParams(String name){
-        return badRequest("Oh, something went wrong").withHeader("time", LocalDateTime.now().toString());
+    public Result welcomeList(String name, int from, int to){
+        StringBuilder sb = new StringBuilder();
+        for (int i = from; i <= to; i++) {
+             sb.append(i+ "\n");
+        }
+        return ok("Welcome to Play, " + name + "\n" + sb.toString());
+    }
+
+    public Result reqWithParamsFalse(String name, boolean verbose){
+            return ok("verbose:: "+ verbose + " Oh, something went wrong").withHeader("time", LocalDateTime.now()
+                    .toString());
+    }
+
+    public Result reqWithParamsTrue(String name, boolean verbose){
+            return ok("verbose::" + verbose);
     }
 
     public Result reqWithParams2(String name){
